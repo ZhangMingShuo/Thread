@@ -1,4 +1,6 @@
-public class CreateDemo {
+//Nien Notebook 2 Chapter 1
+//1.3.3 线程创建方法一：继承 Thread 类创建线程类
+public class CreateDemoExtendsThread {
     public static final int MAX_TURN = 5;
     public static String getCurThreadName() {
         return Thread.currentThread().getName();
@@ -17,7 +19,7 @@ public class CreateDemo {
     }
 
     public static void main(String[] args) {
-        Thread thread = null;
+        Thread thread;
         for(int i = 0; i < 2; i++){
             thread = new DemoThread();
             thread.start();
