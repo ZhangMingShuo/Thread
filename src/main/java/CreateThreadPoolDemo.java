@@ -62,4 +62,17 @@ public class CreateThreadPoolDemo {
         //关闭线程池
         pool.shutdown();
     }
+    @Test
+    public void testNewCacheThreadPool()
+    {
+        ExecutorService pool = Executors.newCachedThreadPool();
+        for (int i = 0; i < 5; i++)
+        {
+            pool.execute(new TargetTask());
+            pool.submit(new TargetTask());
+        }
+        ThreadUtil.sleepSeconds(1000);
+        //关闭线程池
+        pool.shutdown();
+    }
 }
