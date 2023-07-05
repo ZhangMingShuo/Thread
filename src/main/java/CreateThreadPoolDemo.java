@@ -5,6 +5,8 @@ import org.junit.Test;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 
 
@@ -74,5 +76,22 @@ public class CreateThreadPoolDemo {
         ThreadUtil.sleepSeconds(1000);
         //关闭线程池
         pool.shutdown();
+    }
+    @Test
+    public void testNewScheduledThreadPool()
+    {
+        ScheduledExecutorService scheduled =
+                Executors.newScheduledThreadPool(2);
+        for (int i = 0; i < 2; i++)
+        {
+            scheduled.scheduleAtFixedRate(new TargetTask(),
+                    0, 1000, TimeUnit.MILLISECONDS);
+            //以上的参数中：
+            // 0 表示首次执行任务的延迟时间，500 表示每次执行任务的间隔时间
+            //TimeUnit.MILLISECONDS 执行的时间间隔数值单位为毫秒
+        }
+        ThreadUtil.sleepSeconds(1000);
+        //关闭线程池
+        scheduled.shutdown();
     }
 }
