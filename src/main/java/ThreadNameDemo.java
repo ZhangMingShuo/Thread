@@ -1,3 +1,6 @@
+//Nien Notebook 2 Chapter 1
+//1.5.1 线程名称的设置和获取
+
 public class ThreadNameDemo {
     private static final int MAX_TURN = 3;
     //异步执行目标类
@@ -12,7 +15,7 @@ public class ThreadNameDemo {
                 } catch (InterruptedException e) {
                     throw new RuntimeException(e);
                 }
-                System.out.println("线程执行轮次:" + turn);
+                Print.tco("线程执行轮次:" + turn);
             }
         }
     }
