@@ -1,4 +1,6 @@
-
+//Nien Notebook 2 Chapter 1
+//1.3.5 优雅创建 Runnable 线程目标类的两种方式
+//2. 使用 Lambda 表达式优雅创建 Runnable 线程目标类
 public class CreateDemoByLambdaExpression {
     public static final int MAX_TURN = 5;
     public static String getCurThreadName() {
@@ -8,7 +10,7 @@ public class CreateDemoByLambdaExpression {
 
 
     public static void main(String[] args) {
-        Thread thread = null;
+        Thread thread;
         for(int i = 0;i < 2;i++){
             thread = new Thread(() -> {
                 for(int j = 1; j < MAX_TURN; j++){
