@@ -1,3 +1,5 @@
+////Nien Notebook 2 Chapter 1
+//1.3.6 实现 Runnable 接口创建线程目标类的特点
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class CreateDemoSplitCodeAndData {
@@ -44,12 +46,12 @@ public class CreateDemoSplitCodeAndData {
             System.out.println(Thread.currentThread().getName() + " 运行结束.");
         }
     }
-    public static void main(String args[]) throws InterruptedException
+    public static void main(String[] args) throws InterruptedException
     {
         System.out.println("商店版本的销售");
         for (int i = 1; i <= 2; i++)
         {
-            Thread thread = null;
+            Thread thread;
             thread = new StoreGoods("店员-" + i);
             thread.start();
         }
@@ -58,7 +60,7 @@ public class CreateDemoSplitCodeAndData {
         MallGoods mallGoods = new MallGoods();
         for (int i = 1; i <= 2; i++)
         {
-            Thread thread = null;
+            Thread thread;
             thread = new Thread(mallGoods, "商场销售员-" + i);
             thread.start();
         }
