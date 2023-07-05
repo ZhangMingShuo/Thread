@@ -1,3 +1,5 @@
+//Nien Notebook 2 Chapter 1
+//1.3.4 线程创建方法二：实现 Runnable 接口创建线程目标类
 public class CreateDemoByImplRunnable {
     public static final int MAX_TURN = 5;
     public static String getCurThreadName() {
@@ -13,13 +15,13 @@ public class CreateDemoByImplRunnable {
         }
 
         public static void main(String[] args) {
-            Thread thread = null;
+            Thread thread;
             for(int i = 0;i < 2;i++){
                 Runnable target = new RunTarget();
+                //创建一个Runnable实现类,将其作为参数传入Thread的构造函数
                 thread = new Thread(target,"RunnableThread"+threadNo++);
                 thread.start();
             }
         }
     }
 }
-//创建一个Runnable实现类,将其作为参数传入Thread的构造函数
