@@ -1,4 +1,6 @@
-
+//Nien Notebook 2 Chapter 1
+//1.3.5 优雅创建 Runnable 线程目标类的两种方式
+// 1. 通过匿名类优雅创建 Runnable 线程目标类
 public class CreateDemoAnonymousClass {
     public static final int MAX_TURN = 5;
     public static String getCurThreadName() {
@@ -8,7 +10,7 @@ public class CreateDemoAnonymousClass {
 
 
     public static void main(String[] args) {
-        Thread thread = null;
+        Thread thread;
         for(int i = 0;i < 2;i++){
             thread = new Thread(new Runnable() {
                 @Override
