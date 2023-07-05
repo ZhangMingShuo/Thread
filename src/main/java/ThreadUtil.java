@@ -162,4 +162,11 @@ public class ThreadUtil {
     {
         LockSupport.parkNanos(millisecond * 1000L * 1000L);
     }
+    /**
+     * 获取当前线程名称
+     */
+    public static String getCurThreadName()
+    {
+        return Thread.currentThread().getName();
+    }
 }
