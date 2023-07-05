@@ -1,5 +1,6 @@
 import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.locks.LockSupport;
 
 public class ThreadUtil {
     /**
@@ -141,5 +142,15 @@ public class ThreadUtil {
                 System.err.println(e.getMessage());
             }
         }
+    }
+
+    /**
+     * 线程睡眠
+     *
+     * @param second 秒
+     */
+    public static void sleepSeconds(int second)
+    {
+        LockSupport.parkNanos(second * 1000L * 1000L * 1000L);
     }
 }
