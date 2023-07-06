@@ -1,3 +1,5 @@
+//Nien Notebook 2 Chapter 1
+//1.8.1 ThreadLocal 的基本使用
 import lombok.Data;
 
 import java.util.concurrent.ThreadPoolExecutor;
