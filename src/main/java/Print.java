@@ -49,6 +49,24 @@ public class Print
         String nextLine = sc.nextLine();  //读取字符串型输入
         return nextLine;
     }
+
+    /**
+     * 带着线程名+类名+方法名称输出
+     *
+     * @param s 待输出的字符串形参
+     */
+    public static void tcfo(Object s)
+    {
+        String cft = "[" + Thread.currentThread().getName() + "|" + ReflectionUtil.getNakeCallClassMethod() + "]";
+
+        //提交线程池进行独立输出，使得输出不影响当前线程的执行
+        ThreadUtil.seqExecute(() ->
+        {
+            System.out.println(cft + "：" + s);
+        });
+
+    }
+
 }
 
 
