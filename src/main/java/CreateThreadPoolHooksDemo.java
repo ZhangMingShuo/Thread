@@ -54,9 +54,10 @@ public class CreateThreadPoolHooksDemo {
             //继承：执行前钩子
             @Override
             protected void beforeExecute(Thread t, Runnable target) {
-                Print.tco(target + "前钩被执行");
+                long start = System.currentTimeMillis();
+                Print.tco(target + "前钩被执行 start:" + start);
                 //记录开始执行时间
-                startTime.set(System.currentTimeMillis());
+                startTime.set(start);
                 super.beforeExecute(t, target);
             }
 
@@ -66,8 +67,9 @@ public class CreateThreadPoolHooksDemo {
             {
                 super.afterExecute(target, t);
                 //计算执行时长
+                long now = System.currentTimeMillis();
                 long time = (System.currentTimeMillis() - startTime.get()) ;
-                Print.tco( target + " 后钩被执行, 任务执行时长（ms）：" + time);
+                Print.tco( target + " 后钩被执行"+" now:"+ now + ", 任务执行时长（ms）：" + time);
                 //清空本地变量
                 startTime.remove();
             }
